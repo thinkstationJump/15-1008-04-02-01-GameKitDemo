@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,10 +17,53 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4Z-e3-4bK">
+                                <rect key="frame" x="65" y="466" width="60" height="30"/>
+                                <state key="normal" title="建立连接"/>
+                                <connections>
+                                    <action selector="buildContent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uO3-Xw-d8n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-2t-cp6">
+                                <rect key="frame" x="481" y="460" width="60" height="30"/>
+                                <state key="normal" title="发送数据"/>
+                                <connections>
+                                    <action selector="sendData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="blH-nT-7YX"/>
+                                </connections>
+                            </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="77k-qi-boH">
+                                <rect key="frame" x="180" y="100" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="FDw-a7-II8"/>
+                                    <constraint firstAttribute="width" constant="240" id="H8l-FG-484"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="v7d-Kp-OWv" appends="YES" id="8lh-bm-XIa"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Sd-2t-cp6" secondAttribute="trailing" constant="39" id="FAU-Vg-On3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7Sd-2t-cp6" secondAttribute="bottom" constant="110" id="SdR-XF-JZZ"/>
+                            <constraint firstItem="y4Z-e3-4bK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="45" id="SnB-S9-QPg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y4Z-e3-4bK" secondAttribute="bottom" constant="104" id="ebh-mo-Tr0"/>
+                            <constraint firstItem="77k-qi-boH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rON-82-JWL"/>
+                            <constraint firstItem="77k-qi-boH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="y37-Qe-VkP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="icon" destination="77k-qi-boH" id="e40-pN-XZw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="v7d-Kp-OWv">
+                    <connections>
+                        <action selector="chooseImaFormLib:" destination="BYZ-38-t0r" id="40W-DW-BOx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
